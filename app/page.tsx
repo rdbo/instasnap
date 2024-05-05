@@ -10,8 +10,8 @@ export default function Home() {
     <main className="flex grow bg-zinc-200">
       <SidePanel />
 
-      <div className="rounded-2xl rounded-r-none bg-zinc-50 grow px-4 py-4 h-screen overflow-y-scroll">
-        <div className="flex items-center">
+      <div className="grow h-screen overflow-y-scroll">
+        <div className="rounded-2xl rounded-r-none rounded-b-none bg-zinc-50 flex items-center sticky top-0 px-2 py-2">
           <div className="w-96 flex grow">
             <Input
               className="rounded-full rounded-r-none h-8"
@@ -40,22 +40,24 @@ export default function Home() {
           </div>
         </div>
 
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
-        <h1 className="text-8xl">hello</h1>
+        <div className="bg-zinc-50 px-2">
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+          <h1 className="text-8xl">hello</h1>
+        </div>
       </div>
     </main>
   );
