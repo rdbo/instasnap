@@ -10,7 +10,7 @@ export default function Home() {
     <main className="flex grow bg-zinc-200">
       <SidePanel />
 
-      <div className="grow h-screen overflow-y-scroll">
+      <div className="grow h-screen overflow-y-scroll rounded-b-2xl rounded-r-none">
         <div className="sticky top-0 bg-zinc-200">
           <div className="bg-zinc-50 flex items-center px-2 py-2 rounded-2xl rounded-b-none rounded-r-none">
             <div className="w-96 flex grow">
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-zinc-50 px-2">
+        <div className="bg-zinc-50 px-2 rounded-b-2xl rounded-r-none">
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
