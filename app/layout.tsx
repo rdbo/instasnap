@@ -17,12 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="min-h-screen flex">
+        <div className="h-screen flex">
           {children}
         </div>
-        <footer className="bg-zinc-200 h-40 flex items-center justify-center">
-          <p>Copyright (C) Rdbo - 2024</p>
-        </footer>
       </body>
     </html>
   );
