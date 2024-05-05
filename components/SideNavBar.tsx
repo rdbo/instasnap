@@ -16,7 +16,7 @@ function SideNavItem({
   const pathname = usePathname();
 
   return (
-    <Link href={href} className={`font-bold flex items-center py-2 ${pathname === href ? "text-rose-600" : ""}`}>
+    <Link href={href} className={`transition font-bold flex items-center py-2 ${pathname === href ? "text-rose-600" : "hover:text-amber-600"}`}>
       {icon}
       <p className="ml-2 text-lg">{text}</p>
     </Link>
