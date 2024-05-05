@@ -1,30 +1,12 @@
+import SideNavBar from "@/components/SideNavBar";
 import { Button } from "@/components/ui/button";
 import { Pacifico } from "next/font/google";
-import { LayoutGrid, Mail, Settings, Star } from "lucide-react";
-import Link from "next/link";
 
 const pacifico = Pacifico({
   subsets: ["latin"],
   style: "normal",
   weight: "400",
 });
-
-function SideNavItem({
-  icon,
-  text,
-  href,
-}: {
-  icon: React.ReactNode;
-  text: string;
-  href: string;
-}) {
-  return (
-    <Link href={href} className="font-bold flex items-center py-2">
-      {icon}
-      <p className="ml-2 text-lg">{text}</p>
-    </Link>
-  );
-}
 
 export default function Home() {
   return (
@@ -44,10 +26,7 @@ export default function Home() {
           </div>
 
           <div className="mt-8">
-            <SideNavItem href="/" icon={<LayoutGrid />} text="Feed" />
-            <SideNavItem href="/" icon={<Star />} text="Trending" />
-            <SideNavItem href="/" icon={<Mail />} text="Messages" />
-            <SideNavItem href="/" icon={<Settings />} text="Settings" />
+            <SideNavBar />            
           </div>
           <div className="absolute bottom-0 w-full px-2 py-2">
             <Button className="w-full">Sign In</Button>
