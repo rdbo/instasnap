@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-zinc-50 px-2 rounded-2xl rounded-t-none rounded-r-none">
+        <div className="bg-zinc-50 px-2 pb-2 rounded-2xl rounded-t-none rounded-r-none">
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
