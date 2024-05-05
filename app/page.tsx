@@ -12,7 +12,7 @@ export default function Home() {
 
       <div className="grow h-screen overflow-y-scroll rounded-b-2xl rounded-r-none">
         <div className="sticky top-0 bg-zinc-200">
-          <div className="bg-zinc-50 flex items-center px-2 py-2 rounded-2xl rounded-b-none rounded-r-none">
+          <div className="bg-zinc-50 flex items-center px-8 py-2 rounded-2xl rounded-b-none rounded-r-none">
             <div className="w-96 flex grow">
               <Input
                 className="rounded-full rounded-r-none h-8"
@@ -46,7 +46,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-zinc-50 px-2 pb-2 rounded-2xl rounded-t-none rounded-r-none">
+        <div className="bg-zinc-50 px-8 pb-4 rounded-2xl rounded-t-none rounded-r-none">
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
