@@ -38,8 +38,9 @@ export default function TopBar() {
         <SearchBar className="hidden md:flex" />
 
         <div className="flex items-center ml-2">
-          <Button className="mx-1 md:hidden w-12 h-8">
-            <Plus size={iconSize} />
+          <Button className="mx-1 lg:hidden w-12 h-8 sm:w-auto sm:h-auto">
+            <Plus size={iconSize} className="sm:hidden" />
+            <span className="hidden sm:inline">New Post</span>
           </Button>
 
           <Button
@@ -71,7 +72,7 @@ export default function TopBar() {
             <UserRound size={iconSize} />
           </Button>
 
-          <Button className="ml-2 hidden md:inline">New Post</Button>
+          <Button className="ml-2 hidden lg:inline-flex">New Post</Button>
         </div>
 
         <div
