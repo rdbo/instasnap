@@ -2,15 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Bell, Mail, Search } from "lucide-react";
 import AppLogo from "./AppLogo";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 export default function TopBar() {
   const iconSize = 18;
 
   return (
-    <div className="bg-zinc-200">
+    <div className="bg-zinc-50 lg:bg-zinc-200">
       <div className="bg-zinc-50 flex items-center px-4 lg:px-8 py-2 lg:rounded-2xl lg:rounded-b-none lg:rounded-r-none">
         <div className="lg:hidden">
-          <AppLogo className="text-2xl"/>
+          <AppLogo className="text-2xl" />
         </div>
         <div className="ml-2 w-96 flex grow">
           <Input
@@ -39,6 +40,9 @@ export default function TopBar() {
 
           <Button className="ml-2">New Post</Button>
         </div>
+      </div>
+      <div className="lg:hidden">
+        <h1>hello</h1>
       </div>
     </div>
   );
