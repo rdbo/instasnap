@@ -4,9 +4,7 @@ import TopBar from "@/components/TopBar";
 export default function Home() {
   return (
     <main className="flex grow bg-zinc-200">
-      <div className="hidden lg:inline">
-        <SidePanel />
-      </div>
+      <SidePanel />
 
       <div className="grow h-screen overflow-y-scroll lg:rounded-b-2xl lg:rounded-r-none">
         <div className="sticky top-0">
