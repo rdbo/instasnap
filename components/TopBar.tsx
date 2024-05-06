@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Bell, Mail, Search } from "lucide-react";
 import AppLogo from "./AppLogo";
+import TopNavBar from "./TopNavBar";
 
 export default function TopBar() {
   const iconSize = 18;
@@ -41,7 +42,7 @@ export default function TopBar() {
         </div>
       </div>
       <div className="lg:hidden">
-        <h1>hello</h1>
+        <TopNavBar />
       </div>
     </div>
   );
