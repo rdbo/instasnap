@@ -59,7 +59,7 @@ export default function TopBar() {
 
           <Button
             variant="outline"
-            className="rounded-full w-8 h-8 px-0 py-0 ml-1"
+            className="rounded-full w-8 h-8 px-0 py-0 ml-1 hidden lg:inline-flex"
           >
             <Mail size={iconSize} />
           </Button>
