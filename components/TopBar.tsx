@@ -2,14 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Bell, X, Mail, Plus, Search } from "lucide-react";
+import { Bell, X, Mail, Plus, Search, UserRound } from "lucide-react";
 import AppLogo from "./AppLogo";
 import TopNavBar from "./TopNavBar";
 import { useState } from "react";
 
 const iconSize = 16;
 
-function SearchBar({ className = "" } : { className?: string }) {
+function SearchBar({ className = "" }: { className?: string }) {
   return (
     <div className={`ml-2 grow ${className}`}>
       <Input
@@ -35,9 +35,13 @@ export default function TopBar() {
         <div className="lg:hidden">
           <AppLogo className="text-2xl" />
         </div>
-        <SearchBar className="hidden md:flex"/>
+        <SearchBar className="hidden md:flex" />
 
         <div className="flex items-center ml-2">
+          <Button className="mx-1 md:hidden w-12 h-8">
+            <Plus size={iconSize} />
+          </Button>
+
           <Button
             variant="outline"
             className="md:hidden rounded-full w-8 h-8 px-0 py-0"
@@ -60,12 +64,14 @@ export default function TopBar() {
             <Mail size={iconSize} />
           </Button>
 
-          <Button className="ml-2">
-            <span className="md:hidden">
-              <Plus size={iconSize} />
-            </span>
-            <span className="hidden md:inline">New Post</span>
+          <Button
+            variant="outline"
+            className="rounded-full w-8 h-8 px-0 py-0 ml-1 lg:hidden"
+          >
+            <UserRound size={iconSize} />
           </Button>
+
+          <Button className="ml-2 hidden md:inline">New Post</Button>
         </div>
 
         <div
