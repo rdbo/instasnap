@@ -18,10 +18,10 @@ function TopNavItem({
   return (
     <Link
       href={href}
-      className={`transition w-32 flex justify-center items-center border mx-2 px-2 py-2 rounded-full ${pathname === href ? "bg-rose-500 text-white" : "hover:bg-rose-200 hover:text-zinc-600"}`}
+      className={`transition w-[6.5rem] sm:w-32 md:w-40 flex justify-center items-center border mx-1 sm:mx-2 px-1 sm:px-2 py-2 rounded-full ${pathname === href ? "bg-rose-500 text-white" : "hover:bg-rose-200 hover:text-zinc-600"}`}
     >
       {icon}
-      <p className="ml-2 text-base">{text}</p>
+      <p className="ml-1 sm:ml-2 text-sm sm:text-base">{text}</p>
     </Link>
   );
 }
