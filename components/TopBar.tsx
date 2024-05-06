@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Bell, Mail, Search } from "lucide-react";
 import AppLogo from "./AppLogo";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
 
 export default function TopBar() {
   const iconSize = 18;
