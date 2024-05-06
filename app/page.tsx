@@ -1,3 +1,4 @@
+import BottomNavBar from "@/components/BottomNavBar";
 import SidePanel from "@/components/SidePanel";
 import TopBar from "@/components/TopBar";
 
@@ -11,7 +12,7 @@ export default function Home() {
           <TopBar />
         </div>
 
-        <div className="bg-zinc-50 px-8 pb-4">
+        <div className="bg-zinc-50 px-8 pb-20">
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
@@ -28,6 +29,10 @@ export default function Home() {
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
           <h1 className="text-8xl">hello</h1>
+        </div>
+
+        <div className="fixed bottom-0 lg:hidden bg-zinc-50 h-14 flex justify-center items-center w-full">
+          <BottomNavBar />
         </div>
       </div>
     </main>

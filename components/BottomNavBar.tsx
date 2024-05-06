@@ -26,16 +26,22 @@ function TopNavItem({
   );
 }
 
-export default function TopNavBar() {
+export default function BottomNavBar() {
   const iconSize = 16;
 
   return (
-    <div className="flex justify-center pb-2">
-      <div className="flex">
-        <TopNavItem href="/" icon={<LayoutGrid size={iconSize} />} text="Feed" />
-        <TopNavItem href="/trending" icon={<Star size={iconSize} />} text="Trending" />
-        <TopNavItem href="/messages" icon={<Mail size={iconSize} />} text="Messages" />
-      </div>
+    <div className="flex justify-center">
+      <TopNavItem href="/" icon={<LayoutGrid size={iconSize} />} text="Feed" />
+      <TopNavItem
+        href="/trending"
+        icon={<Star size={iconSize} />}
+        text="Trending"
+      />
+      <TopNavItem
+        href="/messages"
+        icon={<Mail size={iconSize} />}
+        text="Messages"
+      />
     </div>
   );
 }
