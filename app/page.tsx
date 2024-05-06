@@ -8,7 +8,7 @@ export default function Home() {
         <SidePanel />
       </div>
 
-      <div className="grow h-screen overflow-y-scroll rounded-b-2xl rounded-r-none">
+      <div className="grow h-screen overflow-y-scroll lg:rounded-b-2xl lg:rounded-r-none">
         <div className="sticky top-0">
           <TopBar />
         </div>
