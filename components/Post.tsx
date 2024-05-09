@@ -75,16 +75,7 @@ export default function Post({ media, text, likes, comments }: PostProps) {
         )}
       </div>
 
-      <p ref={textRef} className="max-h-24 whitespace-pre-line overflow-hidden">
-        {text}
-      </p>
-      {isOverflown && (
-        <p>
-          ... <span className="text-blue-500">Show More</span>
-        </p>
-      )}
-
-      <div className="flex justify-between mt-2">
+      <div className="flex justify-between my-2">
         <div className="flex items-center text-gray-200">
           <MessageCircle size={iconSize} fill={iconFill} color={iconColor} />
           <p className="ml-1">{shortenNumber(comments)}</p>
@@ -97,6 +88,15 @@ export default function Post({ media, text, likes, comments }: PostProps) {
           <Share size={iconSize} color={iconColor} />
         </div>
       </div>
+
+      <p ref={textRef} className="max-h-24 whitespace-pre-line overflow-hidden">
+        {text}
+      </p>
+      {isOverflown && (
+        <p>
+          ... <span className="text-blue-500">Show More</span>
+        </p>
+      )}
     </div>
   );
 }
