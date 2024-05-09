@@ -16,7 +16,7 @@ async function getPosts() {
         media: [
           {
             source:
-              "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FLcLsWmw.jpg&f=1&nofb=1&ipt=6a066661925598be3c4b5caff385d45954a2bd3504cee80cd152696814fc9618&ipo=images",
+              "https://wallpaperaccess.com/full/946122.jpg",
             kind: "video" as const,
           },
         ],
@@ -32,7 +32,7 @@ async function getPosts() {
             kind: "video" as const,
           },
         ],
-        text: "this is an example post",
+        text: "this is an example post\nthis post has more than one line\nhello\nabc 123\nhello world",
         likes: 1999999999999999,
         comments: 133713371337,
       },
@@ -84,7 +84,7 @@ export default async function Home() {
         </div>
 
         <div className="px-2 sm:px-8 pb-20">
-          <div className="flex flex-wrap justify-center items-center">
+          <div className="flex flex-wrap justify-center">
             <Suspense fallback={<PostsSkeleton />}>
               <Posts />
             </Suspense>

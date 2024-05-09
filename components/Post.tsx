@@ -32,7 +32,7 @@ export default function Post({ media, text, likes, comments }: PostProps) {
         <img src={media[0].source} className="rounded-lg w-full h-80 sm:h-96" />
       </div>
 
-      <p className="h-16">{text}</p>
+      <p className="max-h-24 whitespace-pre-line overflow-hidden">{text}</p>
 
       <div className="flex justify-between mt-2">
         <div className="flex items-center text-gray-200">
