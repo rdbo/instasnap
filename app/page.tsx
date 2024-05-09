@@ -10,34 +10,34 @@ async function getPosts() {
 
   await new Promise((r) => setTimeout(r, 500));
 
-  return [
-    {
-      media: [
-        {
-          source:
-            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FLcLsWmw.jpg&f=1&nofb=1&ipt=6a066661925598be3c4b5caff385d45954a2bd3504cee80cd152696814fc9618&ipo=images",
-          kind: "video" as const,
-        },
-      ],
-      text: "this is an example post",
-      likes: 69420,
-      comments: 133769420,
-    },
+  return Array(16)
+    .fill([
+      {
+        media: [
+          {
+            source:
+              "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FLcLsWmw.jpg&f=1&nofb=1&ipt=6a066661925598be3c4b5caff385d45954a2bd3504cee80cd152696814fc9618&ipo=images",
+            kind: "video" as const,
+          },
+        ],
+        text: "this is an example post",
+        likes: 69420,
+        comments: 133769420,
+      },
 
-    {
-      media: [
-        {
-          source:
-            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FLcLsWmw.jpg&f=1&nofb=1&ipt=6a066661925598be3c4b5caff385d45954a2bd3504cee80cd152696814fc9618&ipo=images",
-          kind: "video" as const,
-        },
-      ],
-      text: "this is an example post",
-      likes: 1999999999999999,
-      comments: 133713371337,
-    },
-    
-  ];
+      {
+        media: [
+          {
+            source: "https://wallpapercave.com/wp/wp6981239.jpg",
+            kind: "video" as const,
+          },
+        ],
+        text: "this is an example post",
+        likes: 1999999999999999,
+        comments: 133713371337,
+      },
+    ])
+    .flat();
 }
 
 async function Posts() {
@@ -47,13 +47,13 @@ async function Posts() {
     <>
       {posts.map((post, index) => (
         <div key={index} className="sm:mx-2 my-2">
-        <Post
-          media={post.media}
-          text={post.text}
-          likes={post.likes}
-          comments={post.comments}
-        />
-      </div>
+          <Post
+            media={post.media}
+            text={post.text}
+            likes={post.likes}
+            comments={post.comments}
+          />
+        </div>
       ))}
     </>
   );
@@ -84,7 +84,7 @@ export default async function Home() {
         </div>
 
         <div className="px-2 sm:px-8 pb-20">
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap justify-center items-center">
             <Suspense fallback={<PostsSkeleton />}>
               <Posts />
             </Suspense>

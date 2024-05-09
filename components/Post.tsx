@@ -13,8 +13,7 @@ function shortenNumber(n: number): string {
   console.log(n);
 
   for (var i = -1; i < convertionTable.length - 1; ++i) {
-    if (n < 1000)
-      break;
+    if (n < 1000) break;
 
     n /= 1000;
     console.log(n);
@@ -32,11 +31,9 @@ export default function Post({ media, text, likes, comments }: PostProps) {
 
   return (
     <div className="brightness-90 w-80 sm:w-96">
-      <div className="w-full h-52">
-        <img src={media[0].source} className="w-full h-full"/>
-      </div>
-      <div className="h-16">
-        <p>{text}</p>
+      <div className="w-full flex flex-col justify-center items-center">
+        <img src={media[0].source} className="max-w-80 sm:max-w-96 max-h-96" />
+        <p className="h-16">{text}</p>
       </div>
       <div className="flex justify-between mt-2">
         <div className="flex items-center text-gray-200">
