@@ -10,14 +10,14 @@ async function getPosts() {
 
   await new Promise((r) => setTimeout(r, 500));
 
-  return Array(16)
+  return Array(12)
     .fill([
       {
         media: [
           {
             source:
               "https://wallpaperaccess.com/full/946122.jpg",
-            kind: "video" as const,
+            kind: "image" as const,
           },
         ],
         text: "this is an example post",
@@ -28,13 +28,30 @@ async function getPosts() {
       {
         media: [
           {
-            source: "https://wallpapercave.com/wp/wp6981239.jpg",
-            kind: "video" as const,
+            source: "https://wallpaperaccess.com/full/815776.jpg",
+            kind: "image" as const,
+          },
+          {
+            source: "https://2.bp.blogspot.com/-WWTODyh0MPU/T4WhJ5B4qNI/AAAAAAAAB_0/tsfcYpxdaLE/s1600/Christmas+Trees+Wallpapers+2.jpg",
+            kind: "image" as const,
           },
         ],
         text: "this is an example post\nthis post has more than one line\nhello\nabc 123\nhello world",
         likes: 1999999999999999,
         comments: 133713371337,
+      },
+
+      {
+        media: [
+          {
+            source:
+              "https://wallpaperaccess.com/full/946122.jpg",
+            kind: "image" as const,
+          },
+        ],
+        text: "this is an example post",
+        likes: 10203040,
+        comments: 9080,
       },
     ])
     .flat();
