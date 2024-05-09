@@ -33,8 +33,10 @@ function shortenNumber(n: number): string {
 
 export default function Post({ media, text, likes, comments }: PostProps) {
   const iconSize = 22;
-  const iconFill = "#F0F0F0";
-  const iconColor = "#E0E0E0";
+  const likesColor = "#EF533B";
+  const commentsColor = "#63F2FF";
+  const shareColor = "#A1FCA7";
+
   const textRef = useRef<HTMLParagraphElement | null>(null);
   const [isOverflown, setIsOverflown] = useState(false);
   const [mediaIndex, setMediaIndex] = useState(0);
@@ -75,17 +77,17 @@ export default function Post({ media, text, likes, comments }: PostProps) {
         )}
       </div>
 
-      <div className="flex justify-between my-2">
-        <div className="flex items-center text-gray-200">
-          <MessageCircle size={iconSize} fill={iconFill} color={iconColor} />
+      <div className="flex justify-between my-2 text-zinc-400">
+        <div className="flex items-center">
+          <MessageCircle size={iconSize} color={commentsColor} />
           <p className="ml-1">{shortenNumber(comments)}</p>
         </div>
-        <div className="flex items-center text-gray-200">
-          <Heart size={iconSize} fill={iconFill} color={iconColor} />
+        <div className="flex items-center">
+          <Heart size={iconSize} color={likesColor} />
           <p className="ml-1">{shortenNumber(likes)}</p>
         </div>
         <div>
-          <Share size={iconSize} color={iconColor} />
+          <Share size={iconSize} color={shareColor} />
         </div>
       </div>
 
