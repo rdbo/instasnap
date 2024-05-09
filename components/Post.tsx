@@ -1,4 +1,7 @@
+"use client";
+
 import { Heart, MessageCircle, Share } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 export interface PostProps {
   media: { source: string; kind: "image" | "video" }[];
@@ -25,6 +28,16 @@ export default function Post({ media, text, likes, comments }: PostProps) {
   const iconSize = 22;
   const iconFill = "#F0F0F0";
   const iconColor = "#E0E0E0";
+  const textRef = useRef<HTMLParagraphElement | null>(null);
+  const [isOverflown, setIsOverflown] = useState(false);
+
+  useEffect(() => {
+    const { current } = textRef;
+    if (!current)
+      return;
+
+    setIsOverflown(current.scrollHeight > current.clientHeight);
+  });
 
   return (
     <div className="brightness-90 w-80 sm:w-96">
@@ -32,7 +45,8 @@ export default function Post({ media, text, likes, comments }: PostProps) {
         <img src={media[0].source} className="rounded-lg w-full h-80 sm:h-96" />
       </div>
 
-      <p className="max-h-24 whitespace-pre-line overflow-hidden">{text}</p>
+      <p ref={textRef} className="max-h-24 whitespace-pre-line overflow-hidden">{text}</p>
+      { isOverflown && <p>... <span className="text-blue-500">Show More</span></p> }
 
       <div className="flex justify-between mt-2">
         <div className="flex items-center text-gray-200">
