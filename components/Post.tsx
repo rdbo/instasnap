@@ -29,7 +29,7 @@ export default function Post({ media, text, likes, comments }: PostProps) {
   return (
     <div className="brightness-90 w-80 sm:w-96">
       <div className="w-full flex flex-col justify-center items-center">
-        <img src={media[0].source} className="w-full max-h-96" />
+        <img src={media[0].source} className="rounded-lg w-full h-80 sm:h-96" />
       </div>
 
       <p className="h-16">{text}</p>

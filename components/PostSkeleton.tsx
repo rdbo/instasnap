@@ -12,7 +12,7 @@ export default function PostSkeleton() {
 
   return (
     <div className="brightness-90 w-80 sm:w-96">
-      <Skeleton className="w-full h-52" />
+      <Skeleton className="w-full h-80 sm:h-96" />
       <Skeleton className="w-full h-4 mt-1 rounded-full" />
       <Skeleton className="w-full h-4 mt-1 rounded-full" />
       <Skeleton className="w-10/12 h-4 mt-1 rounded-full" />
