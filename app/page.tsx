@@ -7,7 +7,7 @@ import { Suspense } from "react";
 async function getPosts() {
   "use server";
 
-  await new Promise((r) => setTimeout(r, 5000));
+  await new Promise((r) => setTimeout(r, 50000));
 
   return ["hello", "hey there", "wassup"];
 }
@@ -31,7 +31,7 @@ function PostsSkeleton() {
     <>
       {Array.from({ length: 32 }, (_, i) => {
         return (
-          <div key={i} className="mx-2 my-2">
+          <div key={i} className="sm:mx-2 my-2">
             <PostSkeleton />
           </div>
         );
@@ -50,7 +50,7 @@ export default async function Home() {
           <TopBar />
         </div>
 
-        <div className="px-8 pb-20">
+        <div className="px-2 sm:px-8 pb-20">
           <div className="flex flex-wrap justify-center">
             <Suspense fallback={<PostsSkeleton />}>
               <Posts />
