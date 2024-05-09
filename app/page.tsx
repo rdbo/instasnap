@@ -46,7 +46,7 @@ export default async function Home() {
       <SidePanel />
 
       <div className="grow h-screen overflow-y-scroll lg:rounded-b-2xl lg:rounded-r-none bg-zinc-50">
-        <div className="sticky top-0">
+        <div className="sticky top-0 z-50">
           <TopBar />
         </div>
 
