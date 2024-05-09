@@ -1,6 +1,10 @@
 import { Heart, MessageCircle, Share } from "lucide-react";
 import { Skeleton } from "./ui/skeleton";
 
+function randomNumber() {
+  return ((Math.random() * 10) + 1).toFixed(1);
+}
+
 export default function PostSkeleton() {
   const iconSize = 22;
   const iconFill = "#F0F0F0";
@@ -15,11 +19,11 @@ export default function PostSkeleton() {
       <div className="flex justify-between mt-2">
         <div className="flex items-center text-gray-200">
           <MessageCircle size={iconSize} fill={iconFill} color={iconColor} />
-          <p className="ml-1">5.9K</p>
+          <p className="ml-1">{randomNumber()}K</p>
         </div>
         <div className="flex items-center text-gray-200">
           <Heart size={iconSize} fill={iconFill} color={iconColor} />
-          <p className="ml-1">1.2M</p>
+          <p className="ml-1">{randomNumber()}M</p>
         </div>
         <div>
           <Share size={iconSize} color={iconColor} />
