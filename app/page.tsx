@@ -1,4 +1,5 @@
 import BottomNavBar from "@/components/BottomNavBar";
+import Post from "@/components/Post";
 import PostSkeleton from "@/components/PostSkeleton";
 import SidePanel from "@/components/SidePanel";
 import TopBar from "@/components/TopBar";
@@ -7,9 +8,36 @@ import { Suspense } from "react";
 async function getPosts() {
   "use server";
 
-  await new Promise((r) => setTimeout(r, 50000));
+  await new Promise((r) => setTimeout(r, 500));
 
-  return ["hello", "hey there", "wassup"];
+  return [
+    {
+      media: [
+        {
+          source:
+            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FLcLsWmw.jpg&f=1&nofb=1&ipt=6a066661925598be3c4b5caff385d45954a2bd3504cee80cd152696814fc9618&ipo=images",
+          kind: "video" as const,
+        },
+      ],
+      text: "this is an example post",
+      likes: 69420,
+      comments: 133769420,
+    },
+
+    {
+      media: [
+        {
+          source:
+            "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2FLcLsWmw.jpg&f=1&nofb=1&ipt=6a066661925598be3c4b5caff385d45954a2bd3504cee80cd152696814fc9618&ipo=images",
+          kind: "video" as const,
+        },
+      ],
+      text: "this is an example post",
+      likes: 1999999999999999,
+      comments: 133713371337,
+    },
+    
+  ];
 }
 
 async function Posts() {
@@ -18,9 +46,14 @@ async function Posts() {
   return (
     <>
       {posts.map((post, index) => (
-        <h1 key={index} className="text-4xl">
-          {post}
-        </h1>
+        <div key={index} className="sm:mx-2 my-2">
+        <Post
+          media={post.media}
+          text={post.text}
+          likes={post.likes}
+          comments={post.comments}
+        />
+      </div>
       ))}
     </>
   );
