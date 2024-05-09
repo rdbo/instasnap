@@ -1,4 +1,5 @@
 import BottomNavBar from "@/components/BottomNavBar";
+import PostSkeleton from "@/components/PostSkeleton";
 import SidePanel from "@/components/SidePanel";
 import TopBar from "@/components/TopBar";
 import { Suspense } from "react";
@@ -6,7 +7,7 @@ import { Suspense } from "react";
 async function getPosts() {
   "use server";
 
-  await new Promise((r) => setTimeout(r, 500));
+  await new Promise((r) => setTimeout(r, 5000));
 
   return ["hello", "hey there", "wassup"];
 }
@@ -17,8 +18,24 @@ async function Posts() {
   return (
     <>
       {posts.map((post, index) => (
-        <h1 key={index} className="text-4xl">{post}</h1>
+        <h1 key={index} className="text-4xl">
+          {post}
+        </h1>
       ))}
+    </>
+  );
+}
+
+function PostsSkeleton() {
+  return (
+    <>
+      {Array.from({ length: 32 }, (_, i) => {
+        return (
+          <div key={i} className="mx-2 my-2">
+            <PostSkeleton />
+          </div>
+        );
+      })}
     </>
   );
 }
@@ -34,9 +51,11 @@ export default async function Home() {
         </div>
 
         <div className="px-8 pb-20">
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Posts />
-          </Suspense>
+          <div className="flex flex-wrap justify-center">
+            <Suspense fallback={<PostsSkeleton />}>
+              <Posts />
+            </Suspense>
+          </div>
         </div>
 
         <div className="fixed bottom-0 lg:hidden bg-zinc-50 h-14 flex justify-center items-center w-full">
