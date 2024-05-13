@@ -42,9 +42,6 @@ export default function Post({
   comments,
 }: PostProps) {
   const iconSize = 22;
-  const likesColor = "#EF533B";
-  const commentsColor = "#63F2FF";
-  const shareColor = "#A1FCA7";
 
   const textRef = useRef<HTMLParagraphElement | null>(null);
   const [isOverflown, setIsOverflown] = useState(false);
@@ -95,17 +92,17 @@ export default function Post({
         )}
       </div>
 
-      <div className="flex justify-between my-2 text-zinc-400">
-        <div className="flex items-center">
-          <MessageCircle size={iconSize} color={commentsColor} />
+      <div className="flex justify-between my-2 text-zinc-700">
+        <div className="flex items-center justify-center w-28 sm:border rounded-full">
+          <MessageCircle size={iconSize} />
           <p className="ml-1">{shortenNumber(comments)}</p>
         </div>
-        <div className="flex items-center">
-          <Heart size={iconSize} color={likesColor} />
+        <div className="flex items-center justify-center w-28 sm:border rounded-full">
+          <Heart size={iconSize} />
           <p className="ml-1">{shortenNumber(likes)}</p>
         </div>
-        <div>
-          <Share size={iconSize} color={shareColor} />
+        <div className="w-28 flex items-center justify-center sm:border rounded-full">
+          <Share size={iconSize} />
         </div>
       </div>
 
