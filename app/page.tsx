@@ -13,6 +13,7 @@ async function getPosts() {
   return Array(12)
     .fill([
       {
+        author: "john.doe",
         media: [
           {
             source:
@@ -26,6 +27,7 @@ async function getPosts() {
       },
 
       {
+        author: "goofy.ahh",
         media: [
           {
             source: "https://wallpaperaccess.com/full/815776.jpg",
@@ -42,6 +44,7 @@ async function getPosts() {
       },
 
       {
+        author: "ligma.1337",
         media: [
           {
             source:
@@ -65,6 +68,7 @@ async function Posts() {
       {posts.map((post, index) => (
         <div key={index} className="sm:mx-2 my-2">
           <Post
+            author={post.author}
             media={post.media}
             text={post.text}
             likes={post.likes}

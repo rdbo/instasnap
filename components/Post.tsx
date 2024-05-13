@@ -6,12 +6,14 @@ import {
   Heart,
   MessageCircle,
   Share,
+  User,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import SpinnerImage from "./SpinnerImage";
 
 export interface PostProps {
+  author: string;
   media: { source: string; kind: "image" | "video" }[];
   text: string;
   likes: number;
@@ -32,7 +34,13 @@ function shortenNumber(n: number): string {
   return converted;
 }
 
-export default function Post({ media, text, likes, comments }: PostProps) {
+export default function Post({
+  author,
+  media,
+  text,
+  likes,
+  comments,
+}: PostProps) {
   const iconSize = 22;
   const likesColor = "#EF533B";
   const commentsColor = "#63F2FF";
@@ -51,6 +59,15 @@ export default function Post({ media, text, likes, comments }: PostProps) {
 
   return (
     <div className="brightness-90 w-80 sm:w-96">
+      <div className="flex items-center mb-1">
+        <div className="bg-gradient-to-r from-rose-600 to-amber-400 px-[2px] py-[2px] rounded-full">
+          <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center">
+            <User />
+          </div>
+        </div>
+        <p className="ml-2 font-bold">{author}</p>
+      </div>
+
       <div className="w-full relative">
         <SpinnerImage
           src={media[mediaIndex].source}
