@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
+import SpinnerImage from "./SpinnerImage";
 
 export interface PostProps {
   media: { source: string; kind: "image" | "video" }[];
@@ -51,7 +52,7 @@ export default function Post({ media, text, likes, comments }: PostProps) {
   return (
     <div className="brightness-90 w-80 sm:w-96">
       <div className="w-full relative">
-        <img
+        <SpinnerImage
           src={media[mediaIndex].source}
           className="rounded-lg w-full h-80 sm:h-96"
         />
