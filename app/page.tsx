@@ -92,7 +92,7 @@ function PostsSkeleton() {
 
 export default async function Home() {
   return (
-    <main className="flex grow bg-zinc-200">
+    <main className="flex grow bg-zinc-100">
       <SidePanel />
 
       <div className="grow h-screen overflow-y-scroll lg:rounded-b-2xl lg:rounded-r-none bg-zinc-50">

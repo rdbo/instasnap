@@ -29,7 +29,7 @@ export default function TopBar() {
   const [showSearchOverlay, setShowSearchOverlay] = useState(false);
 
   return (
-    <div className="bg-zinc-50 lg:bg-zinc-200">
+    <div className="bg-zinc-50 lg:bg-zinc-100">
       <div className="bg-zinc-50 flex items-center justify-between md:justify-normal px-4 lg:px-8 py-2 lg:rounded-2xl lg:rounded-b-none lg:rounded-r-none relative">
         <div className="lg:hidden">
           <AppLogo className="text-2xl" />
