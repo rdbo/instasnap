@@ -4,6 +4,7 @@ import { openDb } from "@/lib/db";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
+import { v4 as uuidv4 } from "uuid";
 
 export async function attemptSignIn(_prevState: any, data: FormData) {
   const formUsername = data.get("username");
@@ -23,6 +24,9 @@ export async function attemptSignIn(_prevState: any, data: FormData) {
     return { errorMsg: "Invalid username or password" };
   }
 
-  cookies().set("hello", (Math.random() * 1000).toString());
+  let authToken = uuidv4();
+  await db.run("INSERT INTO user_session(user_id, auth_token) VALUES (?, ?)", user.id, authToken);
+
+  cookies().set("auth_token", authToken);
   redirect("/");
 }
