@@ -3,6 +3,7 @@ import Post from "@/components/Post";
 import PostSkeleton from "@/components/PostSkeleton";
 import SidePanel from "@/components/SidePanel";
 import TopBar from "@/components/TopBar";
+import { openDb } from "@/lib/db";
 import { Suspense } from "react";
 
 async function getPosts() {
@@ -16,8 +17,7 @@ async function getPosts() {
         author: "john.doe",
         media: [
           {
-            source:
-              "https://wallpaperaccess.com/full/946122.jpg",
+            source: "https://wallpaperaccess.com/full/946122.jpg",
             kind: "image" as const,
           },
         ],
@@ -34,7 +34,8 @@ async function getPosts() {
             kind: "image" as const,
           },
           {
-            source: "https://2.bp.blogspot.com/-WWTODyh0MPU/T4WhJ5B4qNI/AAAAAAAAB_0/tsfcYpxdaLE/s1600/Christmas+Trees+Wallpapers+2.jpg",
+            source:
+              "https://2.bp.blogspot.com/-WWTODyh0MPU/T4WhJ5B4qNI/AAAAAAAAB_0/tsfcYpxdaLE/s1600/Christmas+Trees+Wallpapers+2.jpg",
             kind: "image" as const,
           },
         ],
@@ -47,8 +48,7 @@ async function getPosts() {
         author: "ligma.1337",
         media: [
           {
-            source:
-              "https://wallpaperaccess.com/full/946122.jpg",
+            source: "https://wallpaperaccess.com/full/946122.jpg",
             kind: "image" as const,
           },
         ],
@@ -80,6 +80,30 @@ async function Posts() {
   );
 }
 
+interface User {
+  id: number;
+  handle: string;
+  name: string;
+  password_hash: string;
+}
+
+async function UserList() {
+  let db = await openDb();
+
+  let users = await db.all<User[]>("SELECT * FROM user");
+
+  return (
+    <div>
+      {users.map((user, index) => {
+        return <div key={index}>
+          <h1>{user.name}</h1>
+          <p>{user.handle}</p>
+        </div>;
+      })}
+    </div>
+  );
+}
+
 function PostsSkeleton() {
   return (
     <>
@@ -105,6 +129,9 @@ export default async function Home() {
         </div>
 
         <div className="px-2 sm:px-8 pb-20">
+          <Suspense fallback={<h1>LOADING USER LIST</h1>}>
+            <UserList />
+          </Suspense>
           <div className="flex flex-wrap justify-center">
             <Suspense fallback={<PostsSkeleton />}>
               <Posts />
