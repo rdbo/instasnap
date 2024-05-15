@@ -13,4 +13,4 @@ CREATE TABLE user_session(
 );
 
 /* Password: test123 */
-INSERT INTO users(handle, name, password_hash) VALUES ('tester', 'Tester 123', '$2y$10$PKYyei8/Hhm8ol8iQ0DSTOnsoG4bWlfdM6A630wl6fliKl.iarub6');
+INSERT INTO users(handle, name, password_hash) VALUES ('tester', 'Tester 123', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG');
