@@ -5,9 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { attemptSignIn } from "./actions";
 import { useFormState } from "react-dom";
+import { useEffect } from "react";
 
 export default function SignIn() {
-  const [state, formAction] = useFormState(attemptSignIn, { errorMsg: "" });
+  const [state, formAction] = useFormState(attemptSignIn, { session: null, errorMsg: "" });
+
+  useEffect(() => {
+    if (!state.session)
+      return;
+
+    console.log(state);
+  }, [state]);
 
   return (
     <div className="flex justify-center mt-4">
