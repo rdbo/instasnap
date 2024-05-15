@@ -5,9 +5,28 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { attemptSignIn } from "./actions";
 import { useFormState } from "react-dom";
+import { useContext, useEffect } from "react";
+import { SessionContext, SessionContextProps } from "@/lib/context";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
-  const [state, formAction] = useFormState(attemptSignIn, { errorMsg: "" });
+  const [state, formAction] = useFormState(attemptSignIn, { session: null, errorMsg: "" });
+  const { session, setSession } = useContext(SessionContext) as SessionContextProps;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!state.session)
+      return;
+
+    setSession(state.session);
+  }, [state]);
+
+  useEffect(() => {
+    if (!session)
+      return;
+
+    router.push("/");
+  }, [session]);  
 
   return (
     <div className="flex justify-center mt-4">
