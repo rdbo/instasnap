@@ -1,8 +1,5 @@
-import BottomNavBar from "@/components/BottomNavBar";
 import Post from "@/components/Post";
 import PostSkeleton from "@/components/PostSkeleton";
-import SidePanel from "@/components/SidePanel";
-import TopBar from "@/components/TopBar";
 import { openDb } from "@/lib/db";
 import { Suspense } from "react";
 
@@ -95,10 +92,12 @@ async function UserList() {
   return (
     <div>
       {users.map((user, index) => {
-        return <div key={index}>
-          <h1>{user.name}</h1>
-          <p>{user.handle}</p>
-        </div>;
+        return (
+          <div key={index}>
+            <h1>{user.name}</h1>
+            <p>{user.handle}</p>
+          </div>
+        );
       })}
     </div>
   );
@@ -120,29 +119,10 @@ function PostsSkeleton() {
 
 export default async function Home() {
   return (
-    <main className="flex grow bg-zinc-100">
-      <SidePanel />
-
-      <div className="grow h-screen overflow-y-scroll lg:rounded-b-2xl lg:rounded-r-none bg-zinc-50">
-        <div className="sticky top-0 z-50">
-          <TopBar />
-        </div>
-
-        <div className="px-2 sm:px-8 pb-20">
-          <Suspense fallback={<h1>LOADING USER LIST</h1>}>
-            <UserList />
-          </Suspense>
-          <div className="flex flex-wrap justify-center">
-            <Suspense fallback={<PostsSkeleton />}>
-              <Posts />
-            </Suspense>
-          </div>
-        </div>
-
-        <div className="fixed bottom-0 lg:hidden bg-zinc-50 h-14 flex justify-center items-center w-full">
-          <BottomNavBar />
-        </div>
-      </div>
-    </main>
+    <div className="flex flex-wrap justify-center">
+      <Suspense fallback={<PostsSkeleton />}>
+        <Posts />
+      </Suspense>
+    </div>
   );
 }
