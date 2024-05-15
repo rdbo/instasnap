@@ -20,12 +20,12 @@ export default function SignIn() {
           <Label htmlFor="username">Username</Label>
           <Input id="username" name="username" />
         </div>
-        <div className="my-8">
+        <div className="mt-8">
           <Label htmlFor="password">Password</Label>
           <Input id="password" name="password" type="password" />
         </div>
-        <div className="text-red-500">
-          <p>{state.errorMsg}</p>
+        <div className="text-red-500 my-2">
+          <p className="h-4">{state.errorMsg}</p>
         </div>
         <Button className="w-full mt-2">Sign In</Button>
       </form>
