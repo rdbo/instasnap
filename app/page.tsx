@@ -1,6 +1,5 @@
 import Post from "@/components/Post";
 import PostSkeleton from "@/components/PostSkeleton";
-import { openDb } from "@/lib/db";
 import { Suspense } from "react";
 
 async function getPosts() {
@@ -74,32 +73,6 @@ async function Posts() {
         </div>
       ))}
     </>
-  );
-}
-
-interface User {
-  id: number;
-  handle: string;
-  name: string;
-  password_hash: string;
-}
-
-async function UserList() {
-  let db = await openDb();
-
-  let users = await db.all<User[]>("SELECT * FROM user");
-
-  return (
-    <div>
-      {users.map((user, index) => {
-        return (
-          <div key={index}>
-            <h1>{user.name}</h1>
-            <p>{user.handle}</p>
-          </div>
-        );
-      })}
-    </div>
   );
 }
 

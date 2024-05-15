@@ -1,4 +1,4 @@
-CREATE TABLE user(
+CREATE TABLE users(
     id INTEGER,
     handle VARCHAR(40) UNIQUE NOT NULL,
     name VARCHAR(64) NOT NULL,
@@ -13,4 +13,4 @@ CREATE TABLE user_session(
 );
 
 /* Password: test123 */
-INSERT INTO user(handle, name, password_hash) VALUES ('tester', 'Tester 123', '$2y$10$PKYyei8/Hhm8ol8iQ0DSTOnsoG4bWlfdM6A630wl6fliKl.iarub6');
+INSERT INTO users(handle, name, password_hash) VALUES ('tester', 'Tester 123', '$2y$10$PKYyei8/Hhm8ol8iQ0DSTOnsoG4bWlfdM6A630wl6fliKl.iarub6');
