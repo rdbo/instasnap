@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Bell, X, Mail, Plus, Search, UserRound } from "lucide-react";
 import AppLogo from "./AppLogo";
 import { useState } from "react";
+import Link from "next/link";
 
 const iconSize = 16;
 
@@ -31,9 +32,9 @@ export default function TopBar() {
   return (
     <div className="bg-zinc-50 lg:bg-zinc-100">
       <div className="bg-zinc-50 flex items-center justify-between md:justify-normal px-4 lg:px-8 py-2 lg:rounded-2xl lg:rounded-b-none lg:rounded-r-none relative">
-        <div className="lg:hidden">
+        <Link href="/" className="lg:hidden">
           <AppLogo className="text-2xl" />
-        </div>
+        </Link>
         <SearchBar className="hidden md:flex" />
 
         <div className="flex items-center ml-2">
