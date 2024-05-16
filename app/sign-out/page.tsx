@@ -2,6 +2,7 @@
 
 import Spinner from "@/components/Spinner";
 import { useEffect, useRef, useState } from "react";
+import { doSignOut } from "./actions";
 
 export default function SignOut() {
   const dotsRef = useRef(0);
@@ -13,10 +14,14 @@ export default function SignOut() {
   }, [dots]);
 
   useEffect(() => {
+    const postSignOut = () => {
+      window.location.href = "/";
+    };
+    doSignOut().then(postSignOut).catch(postSignOut);
+
     let interval = setInterval(() => {
       let newValue = dotsRef.current + 1;
-      if (newValue > maxDots)
-        newValue = 0;
+      if (newValue > maxDots) newValue = 0;
 
       setDots(newValue);
     }, 1000);
