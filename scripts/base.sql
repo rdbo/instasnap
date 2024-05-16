@@ -55,14 +55,17 @@ INSERT INTO posts(id, user_id, text) VALUES
     (2, 3, 'hello everyone' || x'0a' || 'this post has more than one line' || x'0a' || 'test 12345' || x'0a' || 'abc 123'),
     (3, 4, 'this is another example post'),
     (4, 4, 'this is a media-less post' || x'0a' || 'this is a reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeally looooooooooooooooooooooooooooooong line' || x'0a' || 'i can add a ton of lines in a media-less post' || x'0a' || 'without triggering the show more' || x'0a' || 'lets trigger it forcefully though' || x'0a' || 'alright maybe this is enough' || x'0a' || 'lets check' || x'0a' || 'oops not enough' || x'0a' || 'lets keep going' || x'0a' || 'a little more...' || x'0a' || 'should be almost there' || x'0a' || 'aight' || x'0a' || 'this should be enough now'),
-    (5, 2, '');
+    (5, 2, ''),
+    (6, 4, 'this is a video post');
 
 INSERT INTO post_media(post_id, kind, source) VALUES
     (1, 'image', 'https://wallpaperaccess.com/full/946122.jpg'),
     (2, 'image', 'https://wallpaperaccess.com/full/815776.jpg'),
     (2, 'image', 'https://wallpaperaccess.com/full/946122.jpg'),
     (3, 'image', 'https://wallpaperaccess.com/full/946122.jpg'),
-    (5, 'image', 'https://wallpaperaccess.com/full/381403.jpg');
+    (5, 'image', 'https://wallpaperaccess.com/full/381403.jpg'),
+    (6, 'video', 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4'),
+    (6, 'image', 'https://wallpaperaccess.com/full/381403.jpg');
 
 INSERT INTO post_likes(post_id, user_id) VALUES
     (1, 1),

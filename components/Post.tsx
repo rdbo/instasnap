@@ -69,15 +69,23 @@ export default function Post({
 
       {media.length > 0 && (
         <div className="w-full relative">
-          <SpinnerImage
-            src={media[mediaIndex].source}
-            className="rounded-lg w-full h-80 sm:h-96"
-          />
+          {media[mediaIndex].kind === "image" ? (
+            <SpinnerImage
+              src={media[mediaIndex].source}
+              className="rounded-lg w-full h-80 sm:h-96"
+            />
+          ) : (
+            <video
+              src={media[mediaIndex].source}
+              className="w-full h-80 sm:h-96 bg-zinc-200 rounded-lg"
+              controls
+            />
+          )}
           {media.length > 1 && (
-            <div className="absolute top-0 w-full h-full flex items-center justify-between px-2 opacity-50">
+            <div className="opacity-75">
               <Button
                 variant="outline"
-                className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
+                className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2 absolute top-1/2 -translate-y-1/2 left-0 ml-2"
                 disabled={mediaIndex == 0}
                 onClick={() => setMediaIndex(mediaIndex - 1)}
               >
@@ -85,7 +93,7 @@ export default function Post({
               </Button>
               <Button
                 variant="outline"
-                className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
+                className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2 absolute top-1/2 -translate-y-1/2 right-0 mr-2"
                 disabled={mediaIndex == media.length - 1}
                 onClick={() => setMediaIndex(mediaIndex + 1)}
               >
@@ -115,7 +123,11 @@ export default function Post({
           </div>
         </div>
 
-        <div className={media.length > 0 ? "" : "border rounded-lg px-2 py-2 h-80 sm:h-96"}>
+        <div
+          className={
+            media.length > 0 ? "" : "border rounded-lg px-2 py-2 h-80 sm:h-96"
+          }
+        >
           <p
             ref={textRef}
             className="whitespace-pre-line overflow-y-hidden break-all max-h-60 sm:max-h-72"
