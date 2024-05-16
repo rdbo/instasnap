@@ -77,7 +77,7 @@ export default function Post({
           <div className="absolute top-0 w-full h-full flex items-center justify-between px-2 opacity-50">
             <Button
               variant="outline"
-              className="w-10 h-10 rounded-full px-0 py-0"
+              className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
               disabled={mediaIndex == 0}
               onClick={() => setMediaIndex(mediaIndex - 1)}
             >
@@ -85,7 +85,7 @@ export default function Post({
             </Button>
             <Button
               variant="outline"
-              className="w-10 h-10 rounded-full px-0 py-0"
+              className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
               disabled={mediaIndex == media.length - 1}
               onClick={() => setMediaIndex(mediaIndex + 1)}
             >
