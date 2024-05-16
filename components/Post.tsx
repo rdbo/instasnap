@@ -21,6 +21,9 @@ export interface PostProps {
 }
 
 function shortenNumber(n: number): string {
+  if (n < 1000)
+    return n.toString();
+
   const convertionTable = ["K", "M", "B", "T"];
 
   for (var i = -1; i < convertionTable.length - 1; ++i) {
