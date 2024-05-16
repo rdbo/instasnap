@@ -29,6 +29,8 @@ export interface Post {
 export async function getPosts() {
   "use server";
 
+  await new Promise((r) => setTimeout(r, 2000)); // TODO: REMOVE
+
   const db = await openDb();
 
   type PostsQuery = { id: number; handle: string; text: string };
@@ -56,54 +58,4 @@ export async function getPosts() {
   }
 
   return posts;
-
-  await new Promise((r) => setTimeout(r, 500));
-
-  return Array(12)
-    .fill([
-      {
-        author: "john.doe",
-        media: [
-          {
-            source: "https://wallpaperaccess.com/full/946122.jpg",
-            kind: "image" as const,
-          },
-        ],
-        text: "this is an example post",
-        likes: 69420,
-        comments: 133769420,
-      },
-
-      {
-        author: "goofy.ahh",
-        media: [
-          {
-            source: "https://wallpaperaccess.com/full/815776.jpg",
-            kind: "image" as const,
-          },
-          {
-            source:
-              "https://2.bp.blogspot.com/-WWTODyh0MPU/T4WhJ5B4qNI/AAAAAAAAB_0/tsfcYpxdaLE/s1600/Christmas+Trees+Wallpapers+2.jpg",
-            kind: "image" as const,
-          },
-        ],
-        text: "this is an example post\nthis post has more than one line\nhello\nabc 123\nhello world",
-        likes: 1999999999999999,
-        comments: 133713371337,
-      },
-
-      {
-        author: "ligma.1337",
-        media: [
-          {
-            source: "https://wallpaperaccess.com/full/946122.jpg",
-            kind: "image" as const,
-          },
-        ],
-        text: "this is an example post",
-        likes: 10203040,
-        comments: 9080,
-      },
-    ])
-    .flat();
 }
