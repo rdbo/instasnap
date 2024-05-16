@@ -12,23 +12,30 @@ export default function PostSkeleton() {
 
   return (
     <div className="brightness-90 w-80 sm:w-96">
+      <div className="mb-1 flex items-center">
+        <Skeleton className="w-10 h-10 rounded-full mr-1" />
+        <Skeleton className="w-32 h-4 rounded-md" />
+      </div>
+
       <Skeleton className="w-full h-80 sm:h-96" />
+
+      <div className="flex justify-between my-2 text-zinc-400">
+        <div className="flex items-center justify-center w-28 sm:border rounded-full bg-zinc-100">
+          <MessageCircle size={iconSize} />
+          <p className="ml-1">{randomNumber()}K</p>
+        </div>
+        <div className="flex items-center justify-center w-28 sm:border rounded-full bg-zinc-100">
+          <Heart size={iconSize} />
+          <p className="ml-1">{randomNumber()}M</p>
+        </div>
+        <div className="w-28 flex items-center justify-center sm:border rounded-full bg-zinc-100">
+          <Share size={iconSize} />
+        </div>
+      </div>
+
       <Skeleton className="w-full h-4 mt-1 rounded-full" />
       <Skeleton className="w-full h-4 mt-1 rounded-full" />
       <Skeleton className="w-10/12 h-4 mt-1 rounded-full" />
-      <div className="flex justify-between mt-2">
-        <div className="flex items-center text-gray-200">
-          <MessageCircle size={iconSize} fill={iconFill} color={iconColor} />
-          <p className="ml-1">{randomNumber()}K</p>
-        </div>
-        <div className="flex items-center text-gray-200">
-          <Heart size={iconSize} fill={iconFill} color={iconColor} />
-          <p className="ml-1">{randomNumber()}M</p>
-        </div>
-        <div>
-          <Share size={iconSize} color={iconColor} />
-        </div>
-      </div>
     </div>
   );
 }
