@@ -64,7 +64,7 @@ INSERT INTO post_media(post_id, kind, source) VALUES
     (3, 'image', 'https://wallpaperaccess.com/full/946122.jpg'),
     (5, 'image', 'https://wallpaperaccess.com/full/381403.jpg');
 
-INSERT INTO post_likes VALUES
+INSERT INTO post_likes(post_id, user_id) VALUES
     (1, 1),
     (1, 2),
     (1, 3),
@@ -72,3 +72,22 @@ INSERT INTO post_likes VALUES
     (2, 2),
     (2, 3),
     (2, 4);
+
+INSERT INTO post_comments(post_id, user_id, comment) VALUES
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (3, 2, 'hello abc'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123'),
+    (4, 3, 'abc 123');
