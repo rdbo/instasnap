@@ -130,7 +130,10 @@ export default function Post({
         >
           <p
             ref={textRef}
-            className="whitespace-pre-line overflow-y-hidden break-all max-h-60 sm:max-h-72"
+            className={
+              "whitespace-pre-line overflow-y-hidden break-all " +
+              (media.length > 0 ? "max-h-24" : "max-h-60 sm:max-h-72")
+            }
           >
             {text}
           </p>

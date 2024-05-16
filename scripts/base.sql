@@ -52,7 +52,7 @@ INSERT INTO users(id, handle, name, password_hash) VALUES
 
 INSERT INTO posts(id, user_id, text) VALUES
     (1, 2, 'this is an example post'),
-    (2, 3, 'hello everyone' || x'0a' || 'this post has more than one line' || x'0a' || 'test 12345' || x'0a' || 'abc 123'),
+    (2, 3, 'hello everyone' || x'0a' || 'this post has more than one line' || x'0a' || 'test 12345' || x'0a' || 'abc 123' || x'0a' || 'instasnap is kewl' || x'0a' || 'lets add more lines' || x'0a' || 'since we need to test the read more feature' || x'0a' || 'hopefully this is enough'),
     (3, 4, 'this is another example post'),
     (4, 4, 'this is a media-less post' || x'0a' || 'this is a reeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeally looooooooooooooooooooooooooooooong line' || x'0a' || 'i can add a ton of lines in a media-less post' || x'0a' || 'without triggering the show more' || x'0a' || 'lets trigger it forcefully though' || x'0a' || 'alright maybe this is enough' || x'0a' || 'lets check' || x'0a' || 'oops not enough' || x'0a' || 'lets keep going' || x'0a' || 'a little more...' || x'0a' || 'should be almost there' || x'0a' || 'aight' || x'0a' || 'this should be enough now'),
     (5, 2, ''),
