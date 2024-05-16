@@ -21,8 +21,7 @@ export interface PostProps {
 }
 
 function shortenNumber(n: number): string {
-  if (n < 1000)
-    return n.toString();
+  if (n < 1000) return n.toString();
 
   const convertionTable = ["K", "M", "B", "T"];
 
@@ -68,55 +67,68 @@ export default function Post({
         <p className="ml-2 font-bold">{author}</p>
       </div>
 
-      <div className="w-full relative">
-        <SpinnerImage
-          src={media[mediaIndex].source}
-          className="rounded-lg w-full h-80 sm:h-96"
-        />
-        {media.length > 1 && (
-          <div className="absolute top-0 w-full h-full flex items-center justify-between px-2 opacity-50">
-            <Button
-              variant="outline"
-              className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
-              disabled={mediaIndex == 0}
-              onClick={() => setMediaIndex(mediaIndex - 1)}
-            >
-              <ArrowBigLeft size={iconSize} />
-            </Button>
-            <Button
-              variant="outline"
-              className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
-              disabled={mediaIndex == media.length - 1}
-              onClick={() => setMediaIndex(mediaIndex + 1)}
-            >
-              <ArrowBigRight size={iconSize} />
-            </Button>
-          </div>
-        )}
-      </div>
-
-      <div className="flex justify-between my-2 text-zinc-700">
-        <div className="flex items-center justify-center w-28 sm:border rounded-full">
-          <MessageCircle size={iconSize} />
-          <p className="ml-1">{shortenNumber(comments)}</p>
+      {media.length > 0 && (
+        <div className="w-full relative">
+          <SpinnerImage
+            src={media[mediaIndex].source}
+            className="rounded-lg w-full h-80 sm:h-96"
+          />
+          {media.length > 1 && (
+            <div className="absolute top-0 w-full h-full flex items-center justify-between px-2 opacity-50">
+              <Button
+                variant="outline"
+                className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
+                disabled={mediaIndex == 0}
+                onClick={() => setMediaIndex(mediaIndex - 1)}
+              >
+                <ArrowBigLeft size={iconSize} />
+              </Button>
+              <Button
+                variant="outline"
+                className="w-10 h-10 rounded-full px-0 py-0 border-zinc-700 border-2"
+                disabled={mediaIndex == media.length - 1}
+                onClick={() => setMediaIndex(mediaIndex + 1)}
+              >
+                <ArrowBigRight size={iconSize} />
+              </Button>
+            </div>
+          )}
         </div>
-        <div className="flex items-center justify-center w-28 sm:border rounded-full">
-          <Heart size={iconSize} />
-          <p className="ml-1">{shortenNumber(likes)}</p>
-        </div>
-        <div className="w-28 flex items-center justify-center sm:border rounded-full">
-          <Share size={iconSize} />
-        </div>
-      </div>
-
-      <p ref={textRef} className="max-h-24 whitespace-pre-line overflow-hidden">
-        {text}
-      </p>
-      {isOverflown && (
-        <p>
-          ... <span className="text-blue-500">Show More</span>
-        </p>
       )}
+
+      <div
+        className={
+          "flex " + (media.length > 0 ? "flex-col" : "flex-col-reverse")
+        }
+      >
+        <div className="flex justify-between my-2 text-zinc-700">
+          <div className="flex items-center justify-center w-28 sm:border rounded-full">
+            <MessageCircle size={iconSize} />
+            <p className="ml-1">{shortenNumber(comments)}</p>
+          </div>
+          <div className="flex items-center justify-center w-28 sm:border rounded-full">
+            <Heart size={iconSize} />
+            <p className="ml-1">{shortenNumber(likes)}</p>
+          </div>
+          <div className="w-28 flex items-center justify-center sm:border rounded-full">
+            <Share size={iconSize} />
+          </div>
+        </div>
+
+        <div className={media.length > 0 ? "" : "border rounded-lg px-2 py-2 h-80 sm:h-96"}>
+          <p
+            ref={textRef}
+            className="whitespace-pre-line overflow-y-hidden break-all max-h-72"
+          >
+            {text}
+          </p>
+          {isOverflown && (
+            <p>
+              ... <span className="text-blue-500">Show More</span>
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
