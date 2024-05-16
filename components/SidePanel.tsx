@@ -4,6 +4,7 @@ import AppLogo from "./AppLogo";
 import Link from "next/link";
 import { useContext } from "react";
 import { SessionContext } from "@/lib/context";
+import { LogOut } from "lucide-react";
 
 export default function SidePanel() {
   const { session } = useContext(SessionContext);
@@ -32,13 +33,17 @@ export default function SidePanel() {
         <div className="mt-8">
           <SideNavBar />
         </div>
-        {session != null || (
-          <div className="absolute bottom-0 w-full px-2 py-2">
+        <div className="absolute bottom-0 w-full px-2 py-2">
+          {(session && (
+            <Link href="/sign-out">
+              <Button variant="outline" className="w-full"><LogOut className="h-4" />Sign Out</Button>
+            </Link>
+          )) || (
             <Link href="/sign-in">
               <Button className="w-full">Sign In</Button>
             </Link>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
