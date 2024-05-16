@@ -118,7 +118,7 @@ export default function Post({
             <Heart size={iconSize} />
             <p className="ml-1">{shortenNumber(likes)}</p>
           </div>
-          <div className="w-28 flex items-center justify-center sm:border rounded-full">
+          <div className="flex items-center justify-center w-28 sm:border rounded-full">
             <Share size={iconSize} />
           </div>
         </div>

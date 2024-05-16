@@ -20,15 +20,15 @@ export default function PostSkeleton() {
       <Skeleton className="w-full h-80 sm:h-96" />
 
       <div className="flex justify-between my-2 text-zinc-400">
-        <div className="flex items-center justify-center w-28 sm:border rounded-full bg-zinc-100">
+        <div className="flex items-center justify-center w-28 sm:border rounded-full sm:bg-zinc-100">
           <MessageCircle size={iconSize} />
           <p className="ml-1">{randomNumber()}K</p>
         </div>
-        <div className="flex items-center justify-center w-28 sm:border rounded-full bg-zinc-100">
+        <div className="flex items-center justify-center w-28 sm:border rounded-full sm:bg-zinc-100">
           <Heart size={iconSize} />
           <p className="ml-1">{randomNumber()}M</p>
         </div>
-        <div className="w-28 flex items-center justify-center sm:border rounded-full bg-zinc-100">
+        <div className="flex items-center justify-center w-28 sm:border rounded-full sm:bg-zinc-100">
           <Share size={iconSize} />
         </div>
       </div>
