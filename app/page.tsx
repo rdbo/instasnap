@@ -11,6 +11,7 @@ async function Posts() {
       {Array.from(posts.values()).map((post, index) => (
         <div key={index} className="sm:mx-2 my-2">
           <Post
+            id={post.id}
             author={post.author}
             media={post.media as Media[]}
             text={post.text}

@@ -7,8 +7,6 @@ function randomNumber() {
 
 export default function PostSkeleton() {
   const iconSize = 22;
-  const iconFill = "#F0F0F0";
-  const iconColor = "#E0E0E0";
 
   return (
     <div className="brightness-90 w-80 sm:w-96">

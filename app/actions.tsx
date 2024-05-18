@@ -16,6 +16,7 @@ export async function getUserSession(authToken: string) {
 }
 
 export interface Post {
+  id: number;
   text: string;
   author: Author;
   media: Media[];
@@ -59,6 +60,7 @@ export async function getPosts() {
   let posts = new Map<number, Post>();
   for (let postResult of postsResult) {
     posts.set(postResult.id, {
+      id: postResult.id,
       text: postResult.text,
       author: {
         handle: postResult.handle,

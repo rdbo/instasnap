@@ -23,6 +23,7 @@ export interface Media {
 }
 
 export interface PostProps {
+  id: number;
   author: Author;
   media: Media[];
   text: string;
@@ -48,6 +49,7 @@ function shortenNumber(n: number): string {
 }
 
 export default function Post({
+  id,
   author,
   media,
   text,
@@ -75,6 +77,8 @@ export default function Post({
     setIsLiked(newValue);
     const likeDiff = newValue ? +1 : -1;
     setLikeCount(likeCount + likeDiff);
+
+    console.log(`UPDATE POST ${id} WITH LIKE STATE: ${newValue}`);
   });
 
   return (
