@@ -12,9 +12,14 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import SpinnerImage from "./SpinnerImage";
 
+export interface Media {
+  source: string;
+  kind: "image" | "video";
+}
+
 export interface PostProps {
   author: string;
-  media: { source: string; kind: "image" | "video" }[];
+  media: Media[];
   text: string;
   likes: number;
   comments: number;
