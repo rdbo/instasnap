@@ -16,6 +16,7 @@ async function Posts() {
             text={post.text}
             likes={post.likes}
             comments={post.comments}
+            hasLiked={post.hasLiked}
           />
         </div>
       ))}

@@ -2,7 +2,6 @@
 
 import { openDb } from "@/lib/db";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
 import { getUserSession } from "../actions";
@@ -36,7 +35,6 @@ export async function attemptSignIn(_prevState: any, data: FormData) {
   );
 
   const expirationDate = new Date(expiration_date);
-  console.log(expirationDate);
 
   cookies().set("auth_token", authToken, { expires: new Date(expirationDate) });
   return { session: await getUserSession(authToken), errorMsg: "" };

@@ -28,6 +28,7 @@ export interface PostProps {
   text: string;
   likes: number;
   comments: number;
+  hasLiked: boolean;
 }
 
 function shortenNumber(n: number): string {
@@ -52,6 +53,7 @@ export default function Post({
   text,
   likes,
   comments,
+  hasLiked,
 }: PostProps) {
   const iconSize = 22;
 
@@ -71,7 +73,14 @@ export default function Post({
       <div className="flex items-center mb-1">
         <div className="bg-gradient-to-r from-rose-600 to-amber-400 px-[2px] py-[2px] rounded-full">
           <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center overflow-hidden">
-            { author.profilePicture ? <img src={author.profilePicture} className="h-full object-cover" /> : <User/>}
+            {author.profilePicture ? (
+              <img
+                src={author.profilePicture}
+                className="h-full object-cover"
+              />
+            ) : (
+              <User />
+            )}
           </div>
         </div>
         <p className="ml-2 font-bold">{author.handle}</p>
@@ -124,8 +133,8 @@ export default function Post({
             <MessageCircle size={iconSize} />
             <p className="ml-1">{shortenNumber(comments)}</p>
           </div>
-          <div className="flex items-center justify-center w-28 sm:border rounded-full">
-            <Heart size={iconSize} />
+          <div className={"flex items-center justify-center w-28 sm:border rounded-full" + (hasLiked ? " text-red-500" : "")}>
+            <Heart size={iconSize} fill={hasLiked ? "currentColor" : "transparent"} />
             <p className="ml-1">{shortenNumber(likes)}</p>
           </div>
           <div className="flex items-center justify-center w-28 sm:border rounded-full">
