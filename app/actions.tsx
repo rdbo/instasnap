@@ -1,5 +1,6 @@
 "use server";
 
+import { Author, Media } from "@/components/Post";
 import { openDb } from "@/lib/db";
 
 export async function getUserSession(authToken: string) {
@@ -13,14 +14,9 @@ export async function getUserSession(authToken: string) {
   return session;
 }
 
-export interface Media {
-  kind: string;
-  source: string;
-}
-
 export interface Post {
   text: string;
-  author: string;
+  author: Author;
   media: Media[];
   likes: number;
   comments: number;
@@ -33,9 +29,9 @@ export async function getPosts() {
 
   const db = await openDb();
 
-  type PostsQuery = { id: number; handle: string; text: string; likes: number, comments: number };
+  type PostsQuery = { id: number; handle: string; profile_picture: string; text: string; likes: number, comments: number };
   const postsResult = await db.all<PostsQuery[]>(
-    "SELECT posts.id, users.handle, posts.text, (SELECT COUNT(*) FROM post_likes WHERE post_likes.post_id = posts.id) AS likes, (SELECT COUNT(*) FROM post_comments WHERE post_comments.post_id = posts.id) AS comments FROM posts JOIN users ON posts.user_id = users.id ORDER BY posts.ROWID DESC LIMIT 32;",
+    "SELECT posts.id, users.handle, users.profile_picture, posts.text, (SELECT COUNT(*) FROM post_likes WHERE post_likes.post_id = posts.id) AS likes, (SELECT COUNT(*) FROM post_comments WHERE post_comments.post_id = posts.id) AS comments FROM posts JOIN users ON posts.user_id = users.id ORDER BY posts.ROWID DESC LIMIT 32;",
   );
 
   type MediasQuery = { post_id: number; kind: string; source: string };
@@ -51,7 +47,7 @@ export async function getPosts() {
   for (let postResult of postsResult) {
     posts.set(postResult.id, {
       text: postResult.text,
-      author: postResult.handle,
+      author: { handle: postResult.handle, profilePicture: postResult.profile_picture },
       media: [],
       likes: postResult.likes,
       comments: postResult.comments,
@@ -61,7 +57,7 @@ export async function getPosts() {
   for (let mediaResult of mediasResult) {
     let post = posts.get(mediaResult.post_id) as Post;
 
-    post.media.push({ kind: mediaResult.kind, source: mediaResult.source });
+    post.media.push({ kind: mediaResult.kind as ("image" | "video"), source: mediaResult.source });
   }
 
   return posts;

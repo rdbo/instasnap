@@ -47,7 +47,7 @@ CREATE TABLE post_comments(
 /* Passwords: test123 */
 INSERT INTO users(id, handle, name, password_hash, profile_picture) VALUES
     (1, 'tyler', 'Tyler Durden', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', 'https://yt3.ggpht.com/a/AATXAJxh8gwCtIMEFss7zrKOqj4f972-KdapGx8Huw=s900-c-k-c0xffffffff-no-rj-mo'),
-    (2, 'john.doe', 'John Doe', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', NULL),
+    (2, 'travis.taxi', 'Travis', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', 'https://static1.srcdn.com/wordpress/wp-content/uploads/2020/02/Travis-in-Taxi-Driver-3.jpg'),
     (3, 'goofy.ahh', 'Goofy Ahh', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', NULL),
     (4, 'ligma.1337', 'Ligma 1337', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', 'https://i.pinimg.com/originals/e8/cc/7a/e8cc7ab3f5811fc222975f271245f661.png');
 
