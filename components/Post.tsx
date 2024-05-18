@@ -8,7 +8,7 @@ import {
   Share,
   User,
 } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button } from "./ui/button";
 import SpinnerImage from "./SpinnerImage";
 
@@ -60,12 +60,21 @@ export default function Post({
   const textRef = useRef<HTMLParagraphElement | null>(null);
   const [isOverflown, setIsOverflown] = useState(false);
   const [mediaIndex, setMediaIndex] = useState(0);
+  const [likeCount, setLikeCount] = useState(likes);
+  const [isLiked, setIsLiked] = useState(hasLiked);
 
   useEffect(() => {
     const { current } = textRef;
     if (!current) return;
 
     setIsOverflown(current.scrollHeight > current.clientHeight);
+  });
+
+  const handleLike = React.cache(() => {
+    let newValue = !isLiked;
+    setIsLiked(newValue);
+    const likeDiff = newValue ? +1 : -1;
+    setLikeCount(likeCount + likeDiff);
   });
 
   return (
@@ -133,10 +142,10 @@ export default function Post({
             <MessageCircle size={iconSize} />
             <p className="ml-1">{shortenNumber(comments)}</p>
           </div>
-          <div className={"flex items-center justify-center w-28 sm:border rounded-full" + (hasLiked ? " text-red-500" : "")}>
-            <Heart size={iconSize} fill={hasLiked ? "currentColor" : "transparent"} />
-            <p className="ml-1">{shortenNumber(likes)}</p>
-          </div>
+          <button onClick={handleLike} className={"flex items-center justify-center w-28 sm:border rounded-full" + (isLiked ? " text-red-500" : "")}>
+            <Heart size={iconSize} fill={isLiked ? "currentColor" : "transparent"} />
+            <p className="ml-1">{shortenNumber(likeCount)}</p>
+          </button>
           <div className="flex items-center justify-center w-28 sm:border rounded-full">
             <Share size={iconSize} />
           </div>
