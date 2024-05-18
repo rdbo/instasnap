@@ -20,14 +20,24 @@ export async function attemptSignIn(_prevState: any, data: FormData) {
   );
   if (!user) return { session: null, errorMsg: "Invalid username or password" };
 
-  const isPasswordCorrect = await bcrypt.compare(formPassword, user.password_hash);
+  const isPasswordCorrect = await bcrypt.compare(
+    formPassword,
+    user.password_hash,
+  );
   if (!isPasswordCorrect) {
     return { session: null, errorMsg: "Invalid username or password" };
   }
 
   let authToken = uuidv4();
-  await db.run("INSERT INTO user_session(user_id, auth_token) VALUES (?, ?)", user.id, authToken);
+  const { expiration_date } = await db.get(
+    "INSERT INTO user_session(user_id, auth_token) VALUES (?, ?) RETURNING expiration_date",
+    user.id,
+    authToken,
+  );
 
-  cookies().set("auth_token", authToken);
+  const expirationDate = new Date(expiration_date);
+  console.log(expirationDate);
+
+  cookies().set("auth_token", authToken, { expires: new Date(expirationDate) });
   return { session: await getUserSession(authToken), errorMsg: "" };
 }

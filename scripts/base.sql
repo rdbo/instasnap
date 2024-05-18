@@ -10,6 +10,7 @@ CREATE TABLE users(
 CREATE TABLE user_session(
     user_id INTEGER,
     auth_token CHAR(36) NOT NULL,
+    expiration_date TEXT NOT NULL DEFAULT (date('now', '+1 year')),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
