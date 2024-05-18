@@ -3,6 +3,7 @@ CREATE TABLE users(
     handle VARCHAR(40) UNIQUE NOT NULL,
     name VARCHAR(64) NOT NULL,
     password_hash CHAR(60) NOT NULL,
+    profile_picture VARCHAR(256),
     PRIMARY KEY (id)
 );
 
@@ -22,8 +23,8 @@ CREATE TABLE posts(
 
 CREATE TABLE post_media(
     post_id INTEGER,
-    kind VARCHAR(32), /* "video" or "image" */
-    source VARCHAR(256),
+    kind VARCHAR(32) NOT NULL, /* "video" or "image" */
+    source VARCHAR(256) NOT NULL,
     FOREIGN KEY (post_id) REFERENCES posts(id)
 );
 
@@ -38,17 +39,17 @@ CREATE TABLE post_likes(
 CREATE TABLE post_comments(
     post_id INTEGER,
     user_id INTEGER,
-    comment VARCHAR(512),
+    comment VARCHAR(512) NOT NULL,
     FOREIGN KEY (post_id) REFERENCES posts(id),
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 /* Passwords: test123 */
-INSERT INTO users(id, handle, name, password_hash) VALUES
-    (1, 'tester', 'Tester 123', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG'),
-    (2, 'john.doe', 'John Doe', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG'),
-    (3, 'goofy.ahh', 'Goofy Ahh', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG'),
-    (4, 'ligma.1337', 'Ligma 1337', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG');
+INSERT INTO users(id, handle, name, password_hash, profile_picture) VALUES
+    (1, 'tyler', 'Tyler Durden', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', 'https://yt3.ggpht.com/a/AATXAJxh8gwCtIMEFss7zrKOqj4f972-KdapGx8Huw=s900-c-k-c0xffffffff-no-rj-mo'),
+    (2, 'john.doe', 'John Doe', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', NULL),
+    (3, 'goofy.ahh', 'Goofy Ahh', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', NULL),
+    (4, 'ligma.1337', 'Ligma 1337', '$2b$10$RA5skFUvLZ8THb9qUjqPseG8zqHntZkMjLwqQs2npYhY9UuF291nG', 'https://i.pinimg.com/originals/e8/cc/7a/e8cc7ab3f5811fc222975f271245f661.png');
 
 INSERT INTO posts(id, user_id, text) VALUES
     (1, 2, 'this is an example post'),

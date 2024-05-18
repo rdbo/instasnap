@@ -6,7 +6,7 @@ export async function getUserSession(authToken: string) {
   const db = await openDb();
 
   let session = await db.get(
-    "SELECT users.name, users.handle FROM users JOIN user_session ON user_session.user_id = users.id WHERE user_session.auth_token = ?",
+    "SELECT users.name, users.handle, users.profile_picture AS profilePicture FROM users JOIN user_session ON user_session.user_id = users.id WHERE user_session.auth_token = ?",
     authToken,
   );
 
